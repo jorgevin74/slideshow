@@ -1,4 +1,4 @@
-const SliderContainerEl = document.querySelector('.gallery-cell');
+const SliderContainerEl = document.querySelector('.gallery');
 
 async function getDogImages(url){
     try{
@@ -12,26 +12,11 @@ async function getDogImages(url){
 }
 
 function displayDogImages(message){
-        let i = 0;
-        const imgEl = document.createElement('img');
-        imgEl.src = message[i];
-        SliderContainerEl.appendChild(imgEl);
-
-        const nextButtonEl = document.createElement('button');
-        nextButtonEl.innerHTML = "---->";
-        nextButtonEl.addEventListener('click', function(){
+        for(let i = 0; i<6; i++){
+            const imgEl = document.createElement('img');
             imgEl.src = message[i];
-            i++;
-        })
-        SliderContainerEl.appendChild(nextButtonEl);
-
-        const previousButtonEl = document.createElement('button');
-        previousButtonEl.innerHTML = "<----";
-        previousButtonEl.addEventListener('click', function(){
-            imgEl.src = message[i];
-            i--;
-        })
-        SliderContainerEl.appendChild(previousButtonEl)
+            SliderContainerEl.appendChild(imgEl); 
+        }
 }
 
 getDogImages('https://dog.ceo/api/breed/hound/images');
