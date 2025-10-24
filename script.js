@@ -16,6 +16,7 @@ function displayDogImages(message){
     const unList = document.createElement('ul');
     unList.classList.add('track');
     SliderContainerEl.appendChild(unList);
+
         for(let i = 0; i<8; i++){
             const listItem = document.createElement('li');
             listItem.classList.add("track__item");
